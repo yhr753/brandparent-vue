@@ -22,23 +22,27 @@
           <el-button  type="success" icon="el-icon-circle-plus-outline"  @click="addshow = true">添加</el-button>
         </el-form-item>
       </el-form>
+
       <el-table
         :data="tableData"
         border
         style="width: 100%">
         <el-table-column
-          prop="id"
+          prop="pid"
           label="编号"
           width="180">
         </el-table-column>
         <el-table-column
-          prop="name"
-          label="品牌名称"
+          prop="pname"
+          label="商品名称"
           width="180">
         </el-table-column>
         <el-table-column
-          prop="seq"
-          label="排序">
+          prop="pprice"
+          label="商品价格">
+        </el-table-column>   <el-table-column
+          prop="pprice"
+          label="库存">
         </el-table-column>
         <el-table-column
           label="操作">
