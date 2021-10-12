@@ -2,7 +2,7 @@
   <div id="app">
     <el-card>
       <!-- 查询条件 -->
-      <el-form :inline="true" :model="users" class="demo-form-inline">
+      <el-form :inline="true"  class="demo-form-inline">
         <el-form-item label="编号:">
           <el-input
             placeholder="请输入查询编号"
@@ -57,7 +57,7 @@
 
     <!-- 编辑模态框-->
     <el-dialog title="编辑品牌" :visible="xiugaishow">
-      <el-form label-width="80px" :modal="editform">
+      <el-form label-width="80px" >
         <el-form-item label="id" >
           <el-input clearable disabled v-model="querybyid.id"></el-input>
         </el-form-item>
@@ -83,7 +83,7 @@
 
     <!-- 添加模态框-->
     <el-dialog title="新增品牌" :visible="addshow">
-      <el-form label-width="80px" :modal="editform">
+      <el-form label-width="80px" >
         <el-form-item label="品牌名字">
           <el-input clearable v-model="name"></el-input>
         </el-form-item>
@@ -130,14 +130,13 @@
         var params = new URLSearchParams();
         params.append("pageno",this.pageno);
         params.append("pagesize",this.pagesize);
-        params.append("name",this.nameminche);
+        params.append("pname",this.nameminche);
         params.append("id",this.id);
 
-        this.$axios.post("/tbBrand/querytbBrand",params).then((response)=>{
+        this.$axios.post("/product/queryallProduct",params).then((response)=>{
           this.tableData=response.data.records;
           this.total=response.data.total;
         }).catch();
-
       },
       handleSizeChange(val){
         this.pagesize = val;
